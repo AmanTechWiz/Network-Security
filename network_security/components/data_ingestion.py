@@ -34,11 +34,7 @@ class DataIngestion:
             database_name=self.data_ingestion_config.database_name
             collection_name=self.data_ingestion_config.collection_name
             # Connect with additional options for TLS
-            self.mongo_client=pymongo.MongoClient(
-                MONGO_DB_URL,
-                serverSelectionTimeoutMS=5000,  # 5 second timeout
-                tlsAllowInvalidCertificates=True  # This relaxes certificate validation - use only for debugging
-            )
+            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
             collection=self.mongo_client[database_name][collection_name]
 
             df=pd.DataFrame(list(collection.find()))
