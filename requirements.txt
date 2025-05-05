@@ -4,5 +4,9 @@ numpy
 pymongo
 certifi
 pymongo
-
+mlflow
+dagshub
+fastapi
+uvicorn
+python-multipart
 ## -e .

@@ -2,9 +2,17 @@ import os
 import sys
 import json
 import certifi
+from pymongo import MongoClient
 
 from dotenv import load_dotenv
 load_dotenv()
+
+client = MongoClient(
+    os.getenv("MONGO_DB_URL"),
+    tls=True,
+    tlsCAFile=certifi.where()
+)
+
 
 MONGO_DB_URL = os.getenv("MONGO_DB_URL")
 print(MONGO_DB_URL)
